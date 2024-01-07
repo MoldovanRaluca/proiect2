@@ -1,28 +1,36 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version = "1.0" encoding = "UTF-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:proiect2.ViewModels;assembly=proiect2"
              x:Class="proiect2.PaginaMedici"
-             Title="Medic">
-    <ContentPage.Content>
-        <StackLayout>
-            <ListView x:Name="MediciListView" ItemsSource="{Binding Medici}" SelectedItem="{Binding MedicSelectat}" HasUnevenRows="True">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Padding="10">
-                                <Label Text="{Binding Nume}" FontSize="18" />
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-
-            <StackLayout Orientation="Horizontal">
-                <Entry x:Name="NumeMedicEntry" Placeholder="Nume Medic" />
-                <Button Text="Adaugă" Clicked="AdaugaMedic_Clicked" />
-                <Button Text="Șterge" Clicked="StergeMedic_Clicked" />
-                <Button Text="Modifică" Clicked="ModificaMedic_Clicked" />
-            </StackLayout>
+             Title="Medici">
+    <ContentPage.BindingContext>
+        <models:MedicViewModel />
+    </ContentPage.BindingContext>
+    <StackLayout Margin="10">
+        <StackLayout Spacing="10" Orientation="Horizontal">
+            <Image Source="medici.jpg"
+                   HeightRequest="64"
+                   SemanticProperties.Description="Medici" />
+            <Label Text="Medici" FontSize="22" FontAttributes="Bold" VerticalOptions="End" />
         </StackLayout>
-    </ContentPage.Content>
+
+        <Label FontSize="23" Text="Lista cu medicii clinicii" Margin="0,10,0,0" />
+
+        <ListView x:Name="mediciListView" ItemsSource="{Binding Medici}" HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Nume}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+
+        <Entry x:Name="medicEntry" Placeholder="Nume Medic" />
+        
+        <StackLayout Orientation="Horizontal" Spacing="10">
+            <Button Text="Adauga Medic" Clicked="AdaugaMedic_Clicked" />
+            <Button Text="Sterge Medic" Clicked="StergeMedic_Clicked" />
+        </StackLayout>
+    </StackLayout>
 </ContentPage>

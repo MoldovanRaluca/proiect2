@@ -16,4 +16,5 @@ namespace proiect2.Models
         [OneToMany]
         public List<ListServicii> ListServiciu { get; set; }
     }
+    
 }

@@ -19,19 +19,6 @@ namespace proiect2
                 return database;
             }
         }
-        static MedicDatabase databasem;
-        public static MedicDatabase Databasem
-        {
-            get
-            {
-                if (databasem == null)
-                {
-                    // Nume diferit de fișier pentru a doua bază de date
-                    databasem = new MedicDatabase(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "MedicDatabase.db"));
-                }
-                return databasem;
-            }
-        }
         public App()
         {
             InitializeComponent();

@@ -1,0 +1,27 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:proiect2.Models"
+             x:Class="proiect2.ReviewsPage"
+             Title="ReviewsPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add Review"
+        Clicked="OnReviewAddedClicked" />
+    </ContentPage.ToolbarItems>
+    <ListView x:Name="listView"
+           Margin="20"
+           ItemSelected="OnReviewSelected"
+           HeightRequest="600">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout>
+                        <Label Text="{Binding Comentariu}" FontAttributes="Bold" />
+                        <local:StarRatingView Rating="{Binding Rating}"/>
+                        <Label Text="{Binding Data}" Margin="0,0,0,30" />
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>

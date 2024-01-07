@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:proiect2.ViewModels;assembly=proiect2"
+             x:Class="proiect2.PaginaServicii"
+             Title="Servicii">
+    <ContentPage.BindingContext>
+        <viewModels:ServiciiViewModel />
+    </ContentPage.BindingContext>
+    <StackLayout Margin="10">
+        <StackLayout Spacing="10" Orientation="Horizontal">
+            <Image Source="tratamente.jpg"
+                HeightRequest="64"
+                SemanticProperties.Description="servicii" />
+            <Label Text="servicii" FontSize="22" FontAttributes="Bold" VerticalOptions="End" />
+        </StackLayout>
+        <Label FontSize="23" Text="Lista cu servicii:" Margin="0,10,0,0" />
+
+        <ListView x:Name="serviciiListView" ItemsSource="{Binding ListaServicii}" HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding ServiciuName}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Entry x:Name="serviciuEntry" Placeholder="Nume Serviciu" />
+
+        <StackLayout Orientation="Horizontal" Spacing="10">
+            <Button Text="Adaugă Serviciu" Clicked="AdaugaServiciu_Clicked" />
+            <Button Text="Șterge Serviciu" Clicked="StergeServiciu_Clicked" />
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

@@ -18,16 +18,23 @@
          />
         <ShellContent
          Title="Servicii"
-         ContentTemplate="{DataTemplate local:ServiciiPage}"
-         />
-        <ShellContent
-         Title="Contact"
-         ContentTemplate="{DataTemplate local:Contact}"
+            Route="PaginaServicii"
+         ContentTemplate="{DataTemplate local:PaginaServicii}"
          />
         <ShellContent
          Title="Programari"
          ContentTemplate="{DataTemplate local:ListEntryPage}"
          />
-        
+        <ShellContent
+         Title="Recenzii"
+         Route="ReviewsPage"
+         ContentTemplate="{DataTemplate local:ReviewsPage}"
+         />
+        <ShellContent
+         Title="Contact"
+         ContentTemplate="{DataTemplate local:Contact}"
+         />
+
+
     </TabBar>
 </Shell>

@@ -1,63 +1,58 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using proiect2.Models;
 
-namespace proiect2.Models
+
+namespace proiect2.ViewModels
 {
-    public class MedicViewModel : BindableObject
+    public class MedicViewModel : INotifyPropertyChanged
     {
-        ObservableCollection<Medic> medici;
-        public ObservableCollection<Medic> Medici
-        {
-            get { return medici; }
-            set
-            {
-                medici = value;
-                OnPropertyChanged();
-            }
-        }
-
-        Medic selectedMedic;
-        public Medic SelectedMedic
-        {
-            get { return selectedMedic; }
-            set
-            {
-                selectedMedic = value;
-                OnPropertyChanged();
-            }
-        }
+        public ObservableCollection<Medic> Medici { get; set; }
+        public Medic SelectedMedic { get; set; }
 
         public MedicViewModel()
         {
             Medici = new ObservableCollection<Medic>();
-            // You might initialize with existing data from a database here
+            LoadMedici();
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public void LoadMedici()
+        {
+            // Here you can load Medici from a database or any data source
+            // For demonstration, I'm adding some dummy data
+            Medici.Add(new Medic { ID = 1, Nume = "Pop Sorin" });
+            Medici.Add(new Medic { ID = 2, Nume = "Pastiu Radu" });
+            Medici.Add(new Medic { ID = 3, Nume = "Anton Maria" });
+            Medici.Add(new Medic { ID = 4, Nume = "Danciu Eric" });
+            Medici.Add(new Medic { ID = 5, Nume = "Pavel Larisa" });
+            Medici.Add(new Medic { ID = 6, Nume = "Crisan Carmen" });
+            // Add your database logic or data retrieval mechanism here
         }
 
         public void AdaugaMedic(string nume)
         {
             var medic = new Medic { Nume = nume };
             Medici.Add(medic);
-            // Save to database or perform necessary operations
+            // Save the medic to the database or your data source here
         }
 
         public void StergeMedic(Medic medic)
         {
-            Medici.Remove(medic);
-            // Remove from database or perform necessary operations
-        }
-
-        public void ModificaMedic(Medic medicToUpdate, string newNume)
-        {
-            if (medicToUpdate != null)
+            if (medic != null)
             {
-                medicToUpdate.Nume = newNume;
-                // Update the database or perform necessary operations to save changes
+                Medici.Remove(medic); // ștergeți medicul din lista ObservableCollection
+                                      // Adăugați logica pentru ștergerea din baza de date sau sursa de date aici
             }
         }
+
     }
 }

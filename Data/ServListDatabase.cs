@@ -18,6 +18,7 @@ namespace proiect2.Data
             _database.CreateTableAsync<ServList>().Wait();
             _database.CreateTableAsync<Servicii>().Wait();
             _database.CreateTableAsync<ListServicii>().Wait();
+            _database.CreateTableAsync<Review>().Wait();
         }
         public Task<int> SaveProductAsync(Servicii servicii)
         {
@@ -82,7 +83,29 @@ namespace proiect2.Data
             + " on P.ID = LP.ServiciiID where LP.ServListID = ?",
             shoplistid);
         }
+        public Task<List<Review>> GetReviewsAsync()
+        {
+            return _database.Table<Review>().ToListAsync();
+        }
+
+        public Task<int> SaveReviewAsync(Review review)
+        {
+            if (review.ID != 0)
+            {
+                return _database.UpdateAsync(review);
+            }
+            else
+            {
+                return _database.InsertAsync(review);
+            }
+        }
+        public Task<int> DeleteReviewAsync(Review review)
+        {
+            return _database.DeleteAsync(review);
+        }
+        
     }
+
 }
 
 

@@ -63,6 +63,9 @@
 	  <Compile Update="ListEntryPage.xaml.cs">
 	    <DependentUpon>ListEntryPage.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="AddReviewPage.xaml.cs">
+	    <DependentUpon>AddReviewPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="PaginaMedici.xaml.cs">
 	    <DependentUpon>PaginaMedici.xaml</DependentUpon>
 	  </Compile>
@@ -90,10 +93,19 @@
 	  <MauiXaml Update="ListPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="AddReviewPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="PaginaMedici.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="PaginaServicii.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Programari.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="ReviewsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="ServiciiPage.xaml">
