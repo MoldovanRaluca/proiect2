@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="proiect2.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+            <Image
+    Source="beauty.png"
+    HeightRequest="200"
+    HorizontalOptions="Center" />
+            <Label
+                Text="BINE AȚI VENIT LA BEAUTY ART CLINIC!"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="32"
+                HorizontalOptions="Center" />
+
+            <Label
+                Text="Beauty Art Clinic isi propune imbinarea conceptelor de sanatate, frumusete și artă în cadrul unui ambient elegant și relaxant, alături de specialiști în domeniu și tehnologie de ultimă generație."
+                SemanticProperties.HeadingLevel="Level2"
+                FontSize="18"
+                HorizontalOptions="Center" />
+            <Label
+                Text="PROGRAMUL NOSTRU:"
+                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
+                FontSize="21"
+                 />
+            <Label
+                Text="Luni-Vineri: 9:00 - 18:00"
+                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
+                FontSize="14"
+                 />
+            <Label
+                Text="LOCAȚIE"
+                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
+                FontSize="21"
+                 />
+            <Label
+                Text="Cluj-Napoca, Strada Clinicii, nr.45"
+                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
+                FontSize="14"
+                 />
+            <Label
+                Text="Cod poștal: 352324"
+                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
+                FontSize="14"
+                 />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

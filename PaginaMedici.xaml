@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="proiect2.PaginaMedici"
+             Title="Medic">
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="MediciListView" ItemsSource="{Binding Medici}" SelectedItem="{Binding MedicSelectat}" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10">
+                                <Label Text="{Binding Nume}" FontSize="18" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <StackLayout Orientation="Horizontal">
+                <Entry x:Name="NumeMedicEntry" Placeholder="Nume Medic" />
+                <Button Text="Adaugă" Clicked="AdaugaMedic_Clicked" />
+                <Button Text="Șterge" Clicked="StergeMedic_Clicked" />
+                <Button Text="Modifică" Clicked="ModificaMedic_Clicked" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns:local="clr-namespace:proiect2"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="proiect2.ListPage"
+             Title="ListPage">
+    <ContentPage.Content xmlns:local="clr-namespace:proiect2">
+        <StackLayout Margin="20">
+            <Editor Placeholder="Introdu numele programarii"
+ Text="{Binding Description}"
+ HeightRequest="50" >
+                
+                <Editor.Behaviors>
+                    <local:ValidationBehaviour />
+                </Editor.Behaviors>
+            </Editor>
+            <StackLayout>
+                <Label Text="Selecteaza Data:" />
+                <DatePicker x:Name="datePicker" />
+
+                <Label Text="Selecteaza Timpul:" />
+                <TimePicker x:Name="timePicker" />
+
+                <Label Text="Numarul de servicii:" />
+                <Entry x:Name="numarPersoaneEntry"
+               Placeholder="introdu numarul de servicii"
+               Keyboard="Numeric" />
+            </StackLayout>
+            <ListView x:Name="listView" Margin="20"> 
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Detail="{Binding Description}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1" Text="Sterge serviciu"  MaximumWidthRequest="200" Clicked="OnDeleteButtonClicked1"/>
+                <Button Text="Adauga/alege seviciu" MaximumWidthRequest="300"
+Clicked="OnChooseButtonClicked"/>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button Text="Save"
+Clicked="OnSaveButtonClicked" />
+                <Button Grid.Column="1"
+Text="Delete"
+Clicked="OnDeleteButtonClicked"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
